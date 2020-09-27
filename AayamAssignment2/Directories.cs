@@ -1,9 +1,14 @@
+
+
+//Creating Parent Direcory and then 10 sub directories.
+
 using System;
 using System.IO;
 using System.Text;
 
 public class Directories {
-    public void CreateDirectories () {
+    public void CreateDirectories () 
+    {
         string directoryName = @"C:\Users\Dell\Desktop\Net Centric Practical\NET-Centric-Computing-MBM-A\Aayam Neupane - Student\AayamAssignment2\Parent";
         string subDirectoryName = "Subfolder";
         string helloworldprogram = @"using System; 
