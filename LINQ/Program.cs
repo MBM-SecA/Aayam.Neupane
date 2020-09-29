@@ -13,6 +13,8 @@ namespace LINQ
 
             int[] numbers = { 12, 2, 45, 65, 78, 89, 69, 78 };
 
+
+
             //Fetch Numbers which are greater than 50
             //Using method syntax
             var numbersGreaterThan50 = numbers.Where(x => x > 50);
@@ -34,29 +36,69 @@ namespace LINQ
             foreach (var name in result4)
             {
                 Console.WriteLine(name);
-            }
-*/
+            }*/
 
-            var countries = Country.GetCountries();
-
-            /*var asianCountries = from country in countries
-                                 where country.Continent == "Asia"
-                                 select country;*/
-
-           
-           
-            // Assg => List Countries in Europe which has population < 100k
-
-
-            var countriesInEurope = from country in countries
-            where country.Continent == "Europe" && country.Population< 100000
-            select country;
-
-            foreach(var country in countriesInEurope)
+            //Projection
+            var result5 = numbers.Select(x => x * x);
+            foreach (var square in result5)
             {
-                Console.WriteLine(country.Name);
+                Console.WriteLine(square);
             }
-            // Assg => List Countries in Asia which are never invaded.
+
+            //Ordering
+            var result7 = from name in names
+                          orderby name descending
+                          select name;
+            foreach (var name in result7)
+            {
+                Console.WriteLine(name);
+            }
+
+            var result6 = from num in numbers
+                          orderby num
+                          select num;
+            foreach (var square in result6)
+            {
+                Console.WriteLine(square);
+            }
+
+
+            //Data partitioning
+            var result9 = numbers.Skip(5).Take(5);
+            foreach (var num in result9)
+            {
+                Console.WriteLine(num);
+            }
+
+
+            //Quantifier
+            var result10 = numbers.Any(x => x % 2 == 0);
+            var result11 = numbers.All(x => x % 2 == 0);
+            var result12 = numbers.Contains(34);
+            Console.WriteLine(result10);
+
+
+            //Enumerable class
+            var result13 = Enumerable.Range(1,1000);
+            foreach (var num in result13)
+            {
+                Console.WriteLine(num);
+            }
+            var result14 = Enumerable.Repeat("Hello World", 10);
+            Console.WriteLine(result14);
+
+
+
+            //HW - Is there any african country in your collection
+
+
+
+            ComplexType complexType = new ComplexType();
+            complexType.Restrictions();
+            //HW - Print first 2 largest asia countries names  
+    
+
+            
 
         }
     }
