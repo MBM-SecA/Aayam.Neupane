@@ -1,0 +1,13 @@
+@model Person
+@{
+    ViewData["Title"] = Model.FirstName;
+}
+<h1>Details Of the Employee</h1>
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">@Model.FirstName @Model.Surname</h5>
+    <p class="card-text">Hello! I am @Model.FirstName @Model.Surname, I live in @Model.Address and I just earn Rs.@Model.Salary</p>
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-primary">List of Employees</a>
+  </div>
+</div>
