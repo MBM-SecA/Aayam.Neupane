@@ -21,5 +21,16 @@ public class EmployeeController : Controller
         var reqEmployee = from Person in employee where Person.FirstName == FirstName select Person;
         return View(reqEmployee.First());
     }
+
+     public ActionResult Add()
+    {
+        return View();
+    }
+ 
+    [HttpPost]
+    public string Add(Person person)
+    {
+        return "Record saved";
+    }
 }
 
