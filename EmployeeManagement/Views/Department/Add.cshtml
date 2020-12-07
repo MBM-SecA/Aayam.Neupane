@@ -1,0 +1,31 @@
+@model Department
+@{
+    ViewData["Titlephrase"]="Add Department";
+    
+}
+<h3>Add New Department</h3>
+<hr>
+<form   asp-controller="Department" asp-action="Add" method="POST">
+<input type="hidden" asp-for="Id"/>
+  <div class="form-group">
+    <label asp-for="Name"></label>
+    <input type="text" class="form-control" asp-for="Name" placeholder="Enter Department Name">
+  </div>
+  <div class="form-group">
+    <label asp-for="Code"></label>
+    <input type="text" class="form-control" asp-for="Code"  placeholder="Enter Department Code">
+  </div>
+  <div class="form-group">
+    <label asp-for="Description"></label>
+    <textarea class="form-control" asp-for="Description"  placeholder="Enter Description"></textarea>
+  </div>
+   <div class="form-group">
+    <label asp-for="StartDate"></label>
+    <input type="date" class="form-control" asp-for="StartDate"  placeholder="Enter Datetime"></textarea>
+  </div>
+  
+
+   
+  </div>
+  <button type="submit" class="btn btn-primary">Save Department</button>
+</form>

@@ -1,0 +1,46 @@
+@model Person
+
+@{
+    ViewData["Title"] = "Add Employee";
+    Dictionary<String, Char> Gender = new Dictionary<String, Char>()
+    {
+        {"Male", 'M'},
+        {"Female", 'F'},
+        {"Others", 'O'}
+    };
+}
+
+<form asp-controller="Employee" asp-action="Edit" method="POST">
+    <div class="form-group">
+        <input asp-for="Id" placeholder="@Model.Id" hidden>
+        <label asp-for="FirstName"></label>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+        <input type="text" class="form-control" asp-for="FirstName" placeholder="@Model.FirstName">
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname"></label>
+        <span asp-validation-for="Surname" class="text-danger"></span>
+        <input type="text" class="form-control" asp-for="Surname" placeholder="@Model.Surname">
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <textarea class="form-control" asp-for="Address" placeholder="Enter Address"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender"></label>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+        @foreach (var gender in Gender)
+        {
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" asp-for="Gender" value="@gender.Value">
+                <label class="form-check-label" for="inlineRadio1">@gender.Key</label>
+            </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input type="number" class="form-control" asp-for="Salary" placeholder="Enter salary">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Employee</button>
+</form>

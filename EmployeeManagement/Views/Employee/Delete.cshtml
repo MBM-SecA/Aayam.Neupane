@@ -1,0 +1,16 @@
+@model Person
+@{
+  string FullName = Model.FirstName + " " + Model.Surname;
+  ViewData["Title"] = FullName;
+}
+<h1>Are you sure you want to delete ?</h1>
+<div class="jumbotron">
+  <h1 class="display-4">@FullName</h1>
+  <p class="lead">I am @FullName, I live in @Model.Address, and I earn about Rs. @Model.Salary from this company.</p>
+  <hr class="my-4">
+  <p>I am just one employee of this company. You can view my colleague from the button below.</p>
+  <form asp-controller="Employee" asp-action="Delete" method="POST">
+    <input asp-for="Id" hidden>
+    <button type="submit" class="btn btn-primary-danger">Delete Employee</button>
+  </form>
+</div>
